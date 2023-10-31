@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        section{
+            text-align: center;
+            margin: 10% 30%;
+            padding: 10px;
+            box-shadow: 3px 3px 3px 3px rgb(146, 140, 140);
+            font-family: 'Poppins', sans-serif;
+        }
+        h1{
+            font-size: 8vh;
+            margin-bottom: -20%;
+        }
+        p{
+            font-size: 15vh;
+            margin-bottom: -1px;
+        }
+        
+        section :last-child{
+            background-color: green;
+            width: 10%;
+            color: white;
+            font-size: 4vh;
+        }
+        section :nth-child(4){
+            background-color: gray;
+            width: 30%;
+            color: white;
+            font-size: 4vh;
+        }
+        section :nth-child(3){
+            background-color: red;
+            width: 10%;
+            color: white;
+            font-size: 4vh;
+        }
+
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1>Counter</h1>
+        <p>0</p>
+        <button onclick="less()">-</button>
+        <button onclick="reset()">Reset</button>
+        <button onclick="add()">+</button>
+    </section>
+    <!-- JavaScropt start here -->
+    <script>
+        let value = 0;
+        function reset() {
+            value = 0;
+            document.querySelector('p').innerHTML = `${value}`;
+            if (value == 0) {
+                document.querySelector('p').style.color = 'black';
+            }
+
+
+        }
+        function less() {
+            value = value - 1;
+            document.querySelector('p').innerHTML = `${value}`;
+            if (value < 0) {
+                document.querySelector('p').style.color = 'red';
+            }
+            else if (value > 0) {
+                document.querySelector('p').style.color = 'green';
+            }
+            else {
+                document.querySelector('p').style.color = 'black';
+            }
+        }
+        function add() {
+            value = value + 1;
+            document.querySelector('p').innerHTML = `${value}`;
+            if (value > 0) {
+                document.querySelector('p').style.color = 'green';
+            }
+            else if (value < 0) {
+                document.querySelector('p').style.color = 'red';
+            }
+            else {
+                document.querySelector('p').style.color = 'black';
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

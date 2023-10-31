@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conte Age</title>
+    <style>
+        section {
+            text-align: center;
+            margin: 10% 30%;
+            background-color: white;
+            border: 1px groove;
+            border-radius: 10px;
+            padding: 0px 20px;
+            box-shadow: 3px 3px 3px 3px rgb(146, 140, 140);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        section h1 {
+            font-size: 8vh;
+        }
+
+        section input {
+            width: 40%;
+            padding: 5px;
+            margin: 2%;
+        }
+
+        button {
+            padding: 5px;
+            background-color: blue;
+            border: none;
+            border-radius: 4px;
+            color: white;
+        }
+
+        #YourAge {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1>Age Calculator</h1>
+        <h4>Enter Your date of birth</h4>
+        <input type="date" name="date" id="inDate"><br>
+        <button onclick="Age()">Calculate Age</button>
+        <p id="YourAge">Your Age is......</p>
+    </section>
+
+    <script>
+
+        function Age() {
+            let birth = document.getElementById('inDate').value;
+            let year = Number(birth.substr(0, 4));
+            let month = Number(birth.substr(5, 2));
+            let today = new Date();
+            let age = today.getFullYear();
+            let mon = today.getMonth();
+            let InDate=document.getElementById('YourAge').value;
+            if (mon < month && age <= year
+            ) {
+                document.getElementById('YourAge').innerHTML = `Please Enter currect value`;
+            }
+            else if (year == age) {
+                mon = (today.getMonth() - month)+1;
+                document.getElementById('YourAge').innerHTML = `Your Age ${mon} months old.`;
+            }
+            else if(age > year && mon < month ){
+                mon = today.getMonth() + (month-today.getMonth()-2);
+                age = today.getFullYear() - year;
+                document.getElementById('YourAge').innerHTML = `Your Age is ${age-1} years and ${mon} months old.`;
+                
+            }
+            else {
+                age = today.getFullYear() - year;
+                mon = today.getMonth() - month;
+                document.getElementById('YourAge').innerHTML = `Your Age is ${age} years and ${mon} months old. `;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New User Signup</title>
+</head>
+<style>
+    h2{
+        text-align: center;
+        font-size: 8vh;
+        font-family: 'Poppins', sans-serif;
+    }
+    section{
+        text-align: center;
+        margin: 0% 35%;
+        padding: 30px 5px;
+        box-shadow: 3px 3px 3px 3px rgb(146, 140, 140);
+        font-family: 'Poppins', sans-serif;
+    
+    }
+    p{
+        border: 1px solid transparent;
+        margin: 0 10%;
+        color: red;
+        display: none;
+    }
+    input{
+        font-size: 3vh;
+        width: 70%;
+        height: 30px;
+        margin: 8px;
+        border: 2px groove white;
+        border-radius: 5PX;
+        outline: none;
+    }
+</style>
+
+<body>
+    
+        <h2>New User Signup</h2>
+        <section>
+        <input type="text" name="name" id="FirstName" placeholder="FirstName" />
+        <p id="nameErr">FirstName should conttain 5-15 characters</p>
+        <input type="text" name="uname" id="UName" placeholder="username" />
+        <p id="userErr">username must be and contin 5-12 characters</p>
+        <input type="text" name="email" id="uEmail" placeholder="email" />
+        <p id="emailErr">Email must be a valid address,e.g me@mydomain.com</p>
+        <input type="text" name="number" id="pswNumber" placeholder="password" />
+        <p id="pswErr">Password must alphanumeric (@,_and- are also allowed) and be 8-20 characters</p>
+        <input type="text" name="number" id="phNumber" placeholder="relephone" />
+        <p id="phErr">Telephone must be a valid indian telephone number(10 digits)</p>
+        <input type="text" name="number" id="panNumber" placeholder="panCard" />
+        <p id="panErr">Must be a valid panCard Number</p>
+    </section>
+    <script>
+        let UserName = document.getElementById("FirstName");
+        UserName.addEventListener('keyup', () => {
+            let UserName = document.getElementById("FirstName").value;
+            let usregx = /^[A-Z][a-z]{5,15}$/;
+            if (usregx.test(UserName)) {
+                document.getElementById("nameErr").style.display='none';
+                document.getElementById("FirstName").style.border='2px solid green';
+            } else {
+                document.getElementById("nameErr").style.display='block';
+                document.getElementById("FirstName").style.border='2px solid red';
+            }
+
+        })
+
+
+        let LastName = document.getElementById("UName");
+        LastName.addEventListener('keyup', () => {
+            let LastName = document.getElementById("UName").value;
+            let nmregx = /[a-z 0-9]{5,12}$/;
+            if (nmregx.test(LastName)) {
+                document.getElementById("userErr").style.display = 'none';
+                document.getElementById("UName").style.border='2px solid green';
+            } else {
+                document.getElementById("userErr").style.display = 'block';
+                document.getElementById("UName").style.border='2px solid red';
+            }
+
+        })
+
+        let UserEmail = document.getElementById("uEmail");
+        UserEmail.addEventListener('keyup', () => {
+            let UserEmail = document.getElementById("uEmail").value;
+            let emlregx = /[a-z 0-9]+@[a-z .]+$/;
+            if (emlregx.test(UserEmail)) {
+                document.getElementById("emailErr").style.display = 'none';
+                document.getElementById("uEmail").style.border='2px solid green';
+            } else {
+                document.getElementById("emailErr").style.display = 'block';
+                document.getElementById("uEmail").style.border='2px solid red';
+            }
+
+        })
+
+        let UserPassword = document.getElementById("pswNumber");
+        UserPassword.addEventListener('keyup', () => {
+            let UserPassword = document.getElementById("pswNumber").value;
+            let pawregx = /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,20}$/;
+            if (pawregx.test(UserPassword)) {
+                document.getElementById("pswErr").style.display = 'none';
+                document.getElementById("pswNumber").style.border='2px solid green';
+            } else {
+                document.getElementById("pswErr").style.display = 'block';
+                document.getElementById("pswNumber").style.border='2px solid red';
+            }
+
+        })
+
+
+        let UserNumber = document.getElementById("phNumber");
+        UserNumber.addEventListener('keyup', () => {
+            let UserNumber = document.getElementById("phNumber").value;
+            let phnregx = /^[6-9][0-9]{9}$/;
+            if (phnregx.test(UserNumber)) {
+                document.getElementById("phErr").style.display = 'none';
+                document.getElementById("phNumber").style.border='2px solid green';
+            } else {
+                document.getElementById("phErr").style.display = 'block';
+                document.getElementById("phNumber").style.border='2px solid red';
+            }
+
+        })
+
+        let UserPan = document.getElementById("panNumber");
+        UserPan.addEventListener('keyup', () => {
+            let UserPan = document.getElementById("panNumber").value;
+            let panregx = /^[A-Z]{5}[0-9]{4}[A-z]{1}$/;
+            if (panregx.test(UserPan)) {
+                document.getElementById("panErr").style.display = 'none';
+                document.getElementById("panNumber").style.border='2px solid green';
+            } else {
+                document.getElementById("panErr").style.display = 'block';
+                document.getElementById("panNumber").style.border='2px solid red';
+            }
+
+        })
+
+    </script>
+
+
+
+</body>
+
+</html>
