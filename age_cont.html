@@ -60,8 +60,7 @@
             let age = today.getFullYear();
             let mon = today.getMonth();
             let InDate=document.getElementById('YourAge').value;
-            if (mon < month && age <= year
-            ) {
+            if (mon < month && age <= year) {
                 document.getElementById('YourAge').innerHTML = `Please Enter currect value`;
             }
             else if (year == age) {
@@ -69,7 +68,8 @@
                 document.getElementById('YourAge').innerHTML = `Your Age ${mon} months old.`;
             }
             else if(age > year && mon < month ){
-                mon = today.getMonth() + (month-today.getMonth()-2);
+                mon =(today.getMonth()-month)+12;
+                console.log(mon);
                 age = today.getFullYear() - year;
                 document.getElementById('YourAge').innerHTML = `Your Age is ${age-1} years and ${mon} months old.`;
                 
